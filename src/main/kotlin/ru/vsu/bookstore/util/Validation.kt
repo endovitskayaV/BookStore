@@ -1,7 +1,7 @@
-package com.soutvoid.tvpr.util
+package ru.vsu.bookstore.util
 
-import com.soutvoid.tvpr.domain.genre.Genre
-import com.soutvoid.tvpr.domain.show.ShowForm
+import ru.vsu.bookstore.domain.genre.Genre
+import ru.vsu.bookstore.domain.show.ShowForm
 
 fun String?.validate(): Boolean =
         !isNullOrBlank()

@@ -1,14 +1,14 @@
-package com.soutvoid.tvpr.controller
+package ru.vsu.bookstore.controller
 
-import com.soutvoid.tvpr.domain.channel.Channel
-import com.soutvoid.tvpr.domain.channel.ChannelsRepository
-import com.soutvoid.tvpr.domain.genre.Genre
-import com.soutvoid.tvpr.domain.genre.GenresRepository
-import com.soutvoid.tvpr.domain.schedule.ChannelSchedule
-import com.soutvoid.tvpr.domain.show.Show
-import com.soutvoid.tvpr.domain.show.ShowForm
-import com.soutvoid.tvpr.domain.show.ShowsRepository
-import com.soutvoid.tvpr.util.validate
+import ru.vsu.bookstore.domain.channel.Channel
+import ru.vsu.bookstore.domain.channel.ChannelsRepository
+import ru.vsu.bookstore.domain.genre.Genre
+import ru.vsu.bookstore.domain.genre.GenresRepository
+import ru.vsu.bookstore.domain.schedule.ChannelSchedule
+import ru.vsu.bookstore.domain.show.Show
+import ru.vsu.bookstore.domain.show.ShowForm
+import ru.vsu.bookstore.domain.show.ShowsRepository
+import ru.vsu.bookstore.util.validate
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

@@ -1,4 +1,4 @@
-package com.soutvoid.tvpr.domain.genre
+package ru.vsu.bookstore.domain.genre
 
 import org.springframework.data.repository.CrudRepository
 

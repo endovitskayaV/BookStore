@@ -1,6 +1,6 @@
-package com.soutvoid.tvpr.domain.genre
+package ru.vsu.bookstore.domain.genre
 
-import com.soutvoid.tvpr.domain.show.Show
+import ru.vsu.bookstore.domain.show.Show
 import jdk.nashorn.internal.ir.annotations.Ignore
 import java.io.Serializable
 import javax.persistence.*

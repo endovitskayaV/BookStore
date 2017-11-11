@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.soutvoid</groupId>
-	<artifactId>tvpr</artifactId>
+	<groupId>ru.vsu</groupId>
+	<artifactId>bookstore</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>tvpr</name>
+	<name>bookstore</name>
 	<description></description>
 
 	<parent>
@@ -132,7 +132,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.soutvoid.tvpr.TvprApplication</mainClass>
+					<mainClass>ru.vsu.bookstore.BookstoreApplication</mainClass>
 					<layout>ZIP</layout>
 				</configuration>
 				<executions>

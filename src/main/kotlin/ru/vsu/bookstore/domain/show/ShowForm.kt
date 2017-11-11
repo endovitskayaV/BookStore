@@ -1,6 +1,6 @@
-package com.soutvoid.tvpr.domain.show
+package ru.vsu.bookstore.domain.show
 
-import com.soutvoid.tvpr.domain.genre.Genre
+import ru.vsu.bookstore.domain.genre.Genre
 import java.io.Serializable
 
 data class ShowForm(

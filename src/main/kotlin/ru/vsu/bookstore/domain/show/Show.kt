@@ -1,7 +1,7 @@
-package com.soutvoid.tvpr.domain.show
+package ru.vsu.bookstore.domain.show
 
-import com.soutvoid.tvpr.domain.genre.Genre
-import com.soutvoid.tvpr.domain.schedule.ChannelSchedule
+import ru.vsu.bookstore.domain.genre.Genre
+import ru.vsu.bookstore.domain.schedule.ChannelSchedule
 import jdk.nashorn.internal.ir.annotations.Ignore
 import org.springframework.web.bind.annotation.ModelAttribute
 import java.io.Serializable

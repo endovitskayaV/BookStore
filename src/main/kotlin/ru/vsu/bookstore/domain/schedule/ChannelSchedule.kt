@@ -1,7 +1,7 @@
-package com.soutvoid.tvpr.domain.schedule
+package ru.vsu.bookstore.domain.schedule
 
-import com.soutvoid.tvpr.domain.channel.Channel
-import com.soutvoid.tvpr.domain.show.Show
+import ru.vsu.bookstore.domain.channel.Channel
+import ru.vsu.bookstore.domain.show.Show
 import java.io.Serializable
 import javax.persistence.*
 

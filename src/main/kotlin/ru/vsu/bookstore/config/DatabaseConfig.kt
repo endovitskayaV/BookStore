@@ -1,4 +1,4 @@
-package com.soutvoid.tvpr.config
+package ru.vsu.bookstore.config
 
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder
 import org.springframework.boot.bind.RelaxedPropertyResolver

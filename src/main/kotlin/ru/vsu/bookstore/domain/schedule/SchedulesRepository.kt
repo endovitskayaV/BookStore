@@ -1,4 +1,4 @@
-package com.soutvoid.tvpr.domain.schedule
+package ru.vsu.bookstore.domain.schedule
 
 import org.springframework.data.repository.CrudRepository
 
