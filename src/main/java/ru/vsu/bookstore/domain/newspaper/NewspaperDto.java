@@ -1,5 +1,6 @@
 package ru.vsu.bookstore.domain.newspaper;
 
+import org.hibernate.annotations.Check;
 import ru.vsu.bookstore.domain.product.ProductDto;
 
 public class NewspaperDto extends ProductDto {
@@ -16,12 +17,10 @@ public class NewspaperDto extends ProductDto {
         return super.getName();
     }
 
-    //TODO: check issue>0
     public int getIssue() {
         return issue;
     }
 
-    //TODO: check year>0 < now
     @Override
     public int getReleaseYear() {
         return super.getReleaseYear();

@@ -10,6 +10,7 @@ import ru.vsu.bookstore.domain.util.DtoToEntity;
 import ru.vsu.bookstore.domain.util.EntityToDto;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -25,7 +26,10 @@ public class MainService {
 
     public void save(ConcreteProductInShopDto concreteProductInShopDto) {
         try {
+            if (concreteProductInShopDto.getProduct().getReleaseYear()>-1 ||
+                    concreteProductInShopDto.getProduct().getReleaseYear()<Calendar.YEAR)
             concreteProductInShopRepository.save(DtoToEntity.toEntity(concreteProductInShopDto));
+            else throw new Exception();
         } catch (Exception e) {
             System.out.println("Save failed. " + e.toString());
         }

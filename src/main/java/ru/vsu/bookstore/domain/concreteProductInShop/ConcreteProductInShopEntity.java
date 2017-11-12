@@ -30,9 +30,9 @@ public class ConcreteProductInShopEntity<T extends ProductEntity>  {
         return id;
     }
 
-    @Any(metaColumn = @Column(name = "product_type"))
+    @Any(metaColumn = @Column(name = "product_type", nullable = false))
     @Cascade(CascadeType.ALL)
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id", nullable = false)
     @AnyMetaDef(
             idType = "long",
             metaType = "string",
@@ -50,6 +50,8 @@ public class ConcreteProductInShopEntity<T extends ProductEntity>  {
         return price;
     }
 
+    //TODO:написать @Check everywhere
+    //TODO:code clean everywhere
     @Column(name="copies_number")
     public int getCopiesNumber() {
         return copiesNumber;

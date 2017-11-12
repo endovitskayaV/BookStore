@@ -49,7 +49,6 @@ public class BookEntity extends ProductEntity implements Serializable {
 
     @Override
     @Column(name = "release_year")
-    //@Check(constraints = "release_year < select extract(year from now())")
     public int getReleaseYear() {
         return super.getReleaseYear();
     }
