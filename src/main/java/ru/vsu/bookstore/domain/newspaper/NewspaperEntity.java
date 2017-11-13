@@ -1,6 +1,7 @@
 package ru.vsu.bookstore.domain.newspaper;
 
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.Check;
 import org.hibernate.annotations.Proxy;
 import ru.vsu.bookstore.domain.product.ProductEntity;
 
@@ -10,7 +11,10 @@ import java.io.Serializable;
 @Entity
 @Proxy(lazy = false)
 @EqualsAndHashCode(callSuper = true)
-@Table(name="newspaper")
+@Table(name="newspaper",
+        uniqueConstraints = {@UniqueConstraint(name = "unique_newspaper",
+                columnNames = {"issue", "name", "release_year"})})
+@Check(constraints = "(issue > -1)")
 public class NewspaperEntity extends ProductEntity implements Serializable {
 
     private int issue;

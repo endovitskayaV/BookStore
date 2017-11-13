@@ -13,7 +13,7 @@ import ru.vsu.bookstore.domain.product.ProductEntity;
 
 public class EntityToDto {
 
-    public static BookDto toDto(BookEntity bookEntity) {
+    private static BookDto toDto(BookEntity bookEntity) {
         if (bookEntity != null)
             return new BookDto()
                     .setId(bookEntity.getId())
@@ -25,35 +25,34 @@ public class EntityToDto {
         else return null;
     }
 
-    public  static NewspaperDto toDto(NewspaperEntity newspaperEntity){
-        if (newspaperEntity!=null)
-            return  new NewspaperDto()
-            .setId(newspaperEntity.getId())
-            .setName(newspaperEntity.getName())
-            .setReleaseYear(newspaperEntity.getReleaseYear())
-            .setIssue(newspaperEntity.getIssue());
-            else return null;
+    private static NewspaperDto toDto(NewspaperEntity newspaperEntity) {
+        if (newspaperEntity != null)
+            return new NewspaperDto()
+                    .setId(newspaperEntity.getId())
+                    .setName(newspaperEntity.getName())
+                    .setReleaseYear(newspaperEntity.getReleaseYear())
+                    .setIssue(newspaperEntity.getIssue());
+        else return null;
     }
 
-    public static MagazineDto toDto(MagazineEntity magazineEntity){
-        if(magazineEntity!=null)
+    private static MagazineDto toDto(MagazineEntity magazineEntity) {
+        if (magazineEntity != null)
             return new MagazineDto()
-            .setId(magazineEntity.getId())
-            .setName(magazineEntity.getName())
-            .setReleaseYear(magazineEntity.getReleaseYear())
-            .setIssue(magazineEntity.getIssue())
-            .setPagesNumber(magazineEntity.getPagesNumber());
-            else return null;
+                    .setId(magazineEntity.getId())
+                    .setName(magazineEntity.getName())
+                    .setReleaseYear(magazineEntity.getReleaseYear())
+                    .setIssue(magazineEntity.getIssue())
+                    .setPagesNumber(magazineEntity.getPagesNumber());
+        else return null;
     }
 
     private static ProductDto toDto(ProductEntity productEntity) {
-        if (productEntity!=null){
+        if (productEntity != null) {
             if (productEntity instanceof BookEntity) return toDto((BookEntity) productEntity);
-            else if (productEntity instanceof NewspaperEntity) return  toDto((NewspaperEntity) productEntity);
-            else if (productEntity instanceof  MagazineEntity) return toDto((MagazineEntity) productEntity);
+            else if (productEntity instanceof NewspaperEntity) return toDto((NewspaperEntity) productEntity);
+            else if (productEntity instanceof MagazineEntity) return toDto((MagazineEntity) productEntity);
             else return null;
-        }
-        else return null;
+        } else return null;
     }
 
     public static ConcreteProductInShopDto toDto(ConcreteProductInShopEntity concreteProductInShopEntity) {

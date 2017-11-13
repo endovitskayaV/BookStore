@@ -1,6 +1,7 @@
 package ru.vsu.bookstore.domain.magazine;
 
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.Check;
 import org.hibernate.annotations.Proxy;
 import ru.vsu.bookstore.domain.product.ProductEntity;
 
@@ -10,7 +11,10 @@ import java.io.Serializable;
 @Entity
 @Proxy(lazy = false)
 @EqualsAndHashCode(callSuper = true)
-@Table(name="magazine")
+@Table(name="magazine",
+        uniqueConstraints = {@UniqueConstraint(name = "unique_magazine",
+                columnNames = {"name", "issue", "pages_number", "release_year"})})
+@Check(constraints = "(issue > -1) and (pages_number>-1)")
 public class MagazineEntity extends ProductEntity implements Serializable{
 
     private int pagesNumber;
@@ -34,14 +38,15 @@ public class MagazineEntity extends ProductEntity implements Serializable{
     public int getPagesNumber() {
         return pagesNumber;
     }
+
     @Column(name="issue")
+
     public int getIssue() {
         return issue;
     }
 
     @Override
     @Column(name="release_year")
-   // @Check(constraints = "release_year>-1 and release_year<extract(year from now())")
     public int getReleaseYear() {
         return super.getReleaseYear();
     }

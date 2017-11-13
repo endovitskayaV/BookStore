@@ -13,9 +13,11 @@ import ru.vsu.bookstore.domain.product.ProductEntity;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@EqualsAndHashCode(/*exclude = {"id"}*/)
+@EqualsAndHashCode()
 @Entity
+@Check(constraints = "(copies_number > -1) and (price > -1)")
 @Table(name = "concrete_product_in_shop")
+
 public class ConcreteProductInShopEntity<T extends ProductEntity>  {
 
     private long id;
@@ -50,7 +52,6 @@ public class ConcreteProductInShopEntity<T extends ProductEntity>  {
         return price;
     }
 
-    //TODO:написать @Check everywhere
     //TODO:code clean everywhere
     @Column(name="copies_number")
     public int getCopiesNumber() {

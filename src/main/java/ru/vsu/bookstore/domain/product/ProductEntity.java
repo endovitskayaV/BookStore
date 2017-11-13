@@ -4,7 +4,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
-@EqualsAndHashCode(/*exclude = "id"*/)
+@EqualsAndHashCode()
 public abstract class ProductEntity implements Serializable {
 
     private long id;

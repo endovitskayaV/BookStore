@@ -10,6 +10,7 @@ import ru.vsu.bookstore.domain.concreteProductInShop.ConcreteProductInShopDto;
 import ru.vsu.bookstore.domain.magazine.MagazineDto;
 import ru.vsu.bookstore.domain.newspaper.NewspaperDto;
 import ru.vsu.bookstore.service.MainService;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,16 +28,15 @@ public class BookstoreApplication implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
-            SpringApplication.run(BookstoreApplication.class, args);
-        }
+        SpringApplication.run(BookstoreApplication.class, args);
+    }
 
-        //TODO: возможность читать строки, имеющие пробелы
     @Override
     public void run(String... strings) throws Exception {
 
         printInstructions();
         System.out.print("->");
-        sc = new Scanner(System.in);
+        sc = new Scanner(System.in).useDelimiter("\n");
         String commandStr = sc.nextLine();
 
         while (!commandStr.equalsIgnoreCase("exit")) {
@@ -80,12 +80,12 @@ public class BookstoreApplication implements CommandLineRunner {
                 "'add <product_type>' to add product\n" +
                 "'edit <product_type> <id>' to edit product\n" +
                 "'sell <id> <number>' to sell product\n" +
-                "'remove <id>' to remove product\n"+
+                "'remove <id>' to remove product\n" +
                 "product_type: book / magazine / newspaper\n");
     }
 
     private void printAll() {
-        List list= mainService.getAllConcrete();
+        List list = mainService.getAllConcrete();
         if (list.size() > 0) {
             for (Object obj : list) {
                 System.out.println(((ConcreteProductInShopDto) obj).getProduct().toString() + obj.toString());
@@ -93,10 +93,10 @@ public class BookstoreApplication implements CommandLineRunner {
         } else System.out.println("Shop is empty!");
     }
 
-    private  void add() throws Exception {
+    private void add() {
         if (splitArr.length > 1) {
 
-            ConcreteProductInShopDto concreteProductInShopDto = new ConcreteProductInShopDto();
+            ConcreteProductInShopDto<ru.vsu.bookstore.domain.product.ProductDto> concreteProductInShopDto = new ConcreteProductInShopDto<>();
 
             System.out.println("Price?[price/-]");
             String param = sc.next();
@@ -161,27 +161,26 @@ public class BookstoreApplication implements CommandLineRunner {
 
                 break;
                 case "magazine": {
-                    MagazineDto magazinemagazineDto = new MagazineDto();
-
+                    MagazineDto magazineDto = new MagazineDto();
 
                     System.out.println("Name!");
                     param = sc.next();
-                    magazinemagazineDto.setName(param);
+                    magazineDto.setName(param);
 
                     System.out.println("Release year?[year/-]");
                     param = sc.next();
                     if (!(param.equalsIgnoreCase("-")))
-                        magazinemagazineDto.setReleaseYear(Integer.parseInt(param));
+                        magazineDto.setReleaseYear(Integer.parseInt(param));
 
                     System.out.println("Issue?[issue/-]");
                     param = sc.next();
-                    if (!(param.equalsIgnoreCase("-"))) magazinemagazineDto.setIssue(Integer.parseInt(param));
+                    if (!(param.equalsIgnoreCase("-"))) magazineDto.setIssue(Integer.parseInt(param));
 
                     System.out.println("Pages num?[num/-]");
                     param = sc.next();
-                    if (!(param.equalsIgnoreCase("-"))) magazinemagazineDto.setPagesNumber(Integer.parseInt(param));
+                    if (!(param.equalsIgnoreCase("-"))) magazineDto.setPagesNumber(Integer.parseInt(param));
 
-                    concreteProductInShopDto.setProduct(magazinemagazineDto);
+                    concreteProductInShopDto.setProduct(magazineDto);
                     sc.nextLine();
                     System.out.println("done");
                 }
@@ -190,16 +189,15 @@ public class BookstoreApplication implements CommandLineRunner {
                     System.out.println("Incorrect parameters");
             }
 
-           mainService.save(concreteProductInShopDto);
+            mainService.save(concreteProductInShopDto);
         } else System.out.println("Incorrect number of parameters");
     }
 
-    private  void edit() throws Exception {
+    private void edit() {
         if (splitArr.length > 2) {
 
             int id = Integer.parseInt(splitArr[2]);
-            ConcreteProductInShopDto concreteProductInShopDto = (ConcreteProductInShopDto)
-                    mainService.findConcreteProductById(id);
+            ConcreteProductInShopDto concreteProductInShopDto = mainService.findConcreteProductById(id);
 
             if (concreteProductInShopDto != null) {
                 System.out.println("Price?[price/-]");
@@ -235,7 +233,7 @@ public class BookstoreApplication implements CommandLineRunner {
                         param = sc.next();
                         if (!(param.equalsIgnoreCase("-"))) bookDto.setReleaseYear(Integer.parseInt(param));
 
-                      concreteProductInShopDto.setProduct(bookDto);
+                        concreteProductInShopDto.setProduct(bookDto);
 
                         sc.nextLine();
                         System.out.println("done");
@@ -299,10 +297,10 @@ public class BookstoreApplication implements CommandLineRunner {
         } else System.out.println("Incorrect id");
     }
 
-    private  void remove() throws NumberFormatException {
+    private void remove() throws NumberFormatException {
         if (splitArr.length > 1) {
             ConcreteProductInShopDto concreteProductInShopDto =
-                   mainService.findConcreteProductById(/*id=*/ Integer.parseInt(splitArr[1]));
+                    mainService.findConcreteProductById(/*id=*/ Integer.parseInt(splitArr[1]));
             if (concreteProductInShopDto != null) {
                 mainService.delete(concreteProductInShopDto);
                 System.out.println("Removed");

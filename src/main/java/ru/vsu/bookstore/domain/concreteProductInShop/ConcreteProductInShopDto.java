@@ -1,7 +1,6 @@
 package ru.vsu.bookstore.domain.concreteProductInShop;
 
 import ru.vsu.bookstore.domain.product.ProductDto;
-import ru.vsu.bookstore.domain.product.ProductEntity;
 
 public class ConcreteProductInShopDto<T extends ProductDto> {
 

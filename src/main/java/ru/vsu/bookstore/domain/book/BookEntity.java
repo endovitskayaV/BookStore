@@ -1,6 +1,7 @@
 package ru.vsu.bookstore.domain.book;
 
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.Check;
 import org.hibernate.annotations.Proxy;
 import ru.vsu.bookstore.domain.product.ProductEntity;
 
@@ -10,8 +11,10 @@ import java.io.Serializable;
 @Entity
 @Proxy(lazy = false)
 @EqualsAndHashCode(callSuper = true)
+@Check(constraints = "(pages_number>-1)")
 @Table(name = "book",
-        uniqueConstraints = {@UniqueConstraint(name = "unique_book", columnNames = {"name", "author", "pages_number", "publisher", "release_year"})})
+        uniqueConstraints = {@UniqueConstraint(name = "unique_book",
+                columnNames = {"name", "author", "pages_number", "publisher", "release_year"})})
 public class BookEntity extends ProductEntity implements Serializable {
 
     private String author = "";

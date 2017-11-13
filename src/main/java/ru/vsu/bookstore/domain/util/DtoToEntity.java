@@ -10,10 +10,9 @@ import ru.vsu.bookstore.domain.newspaper.NewspaperDto;
 import ru.vsu.bookstore.domain.newspaper.NewspaperEntity;
 import ru.vsu.bookstore.domain.product.ProductDto;
 import ru.vsu.bookstore.domain.product.ProductEntity;
-import sun.nio.cs.ext.MacArabic;
 
 public class DtoToEntity {
-    public static BookEntity toEntity(BookDto bookDto) {
+    private static BookEntity toEntity(BookDto bookDto) {
         if (bookDto != null) {
             BookEntity bookEntity = new BookEntity();
             bookEntity.setId(bookDto.getId());
@@ -27,7 +26,7 @@ public class DtoToEntity {
         else return null;
     }
 
-    public static NewspaperEntity toEntity(NewspaperDto newspaperDto){
+    private static NewspaperEntity toEntity(NewspaperDto newspaperDto){
         if (newspaperDto != null) {
            NewspaperEntity newspaperEntity = new NewspaperEntity();
             newspaperEntity.setId(newspaperDto.getId());
@@ -39,7 +38,7 @@ public class DtoToEntity {
         else return null;
     }
 
-    public static MagazineEntity toEntity(MagazineDto magazineDto){
+    private static MagazineEntity toEntity(MagazineDto magazineDto){
         if (magazineDto != null) {
             MagazineEntity magazineEntity = new MagazineEntity();
             magazineEntity.setId(magazineDto.getId());

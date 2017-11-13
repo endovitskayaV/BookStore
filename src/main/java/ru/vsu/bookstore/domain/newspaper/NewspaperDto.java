@@ -1,6 +1,5 @@
 package ru.vsu.bookstore.domain.newspaper;
 
-import org.hibernate.annotations.Check;
 import ru.vsu.bookstore.domain.product.ProductDto;
 
 public class NewspaperDto extends ProductDto {

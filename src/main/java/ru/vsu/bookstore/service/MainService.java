@@ -4,15 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import ru.vsu.bookstore.domain.concreteProductInShop.ConcreteProductInShopDto;
-import ru.vsu.bookstore.domain.concreteProductInShop.ConcreteProductInShopEntity;
 import ru.vsu.bookstore.domain.concreteProductInShop.ConcreteProductInShopRepository;
 import ru.vsu.bookstore.domain.util.DtoToEntity;
 import ru.vsu.bookstore.domain.util.EntityToDto;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
 
 @Service
 public class MainService {
@@ -26,11 +25,12 @@ public class MainService {
 
     public void save(ConcreteProductInShopDto concreteProductInShopDto) {
         try {
-            if (concreteProductInShopDto.getProduct().getReleaseYear()>-1 ||
-                    concreteProductInShopDto.getProduct().getReleaseYear()<Calendar.YEAR)
+            if (concreteProductInShopDto.getProduct().getReleaseYear()>-1 &&
+                    concreteProductInShopDto.getProduct().getReleaseYear()<=
+                            Calendar.getInstance().get(Calendar.YEAR))
             concreteProductInShopRepository.save(DtoToEntity.toEntity(concreteProductInShopDto));
-            else throw new Exception();
-        } catch (Exception e) {
+            else throw new SQLException("incorrect release year");
+        } catch (SQLException e) {
             System.out.println("Save failed. " + e.toString());
         }
     }
