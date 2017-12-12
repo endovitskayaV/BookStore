@@ -40,7 +40,6 @@ public class NewspaperEntity extends ProductEntity implements Serializable {
 
     @Override
     @Column(name="release_year")
-    //@Check(constraints = "release_year>-1 and release_year<extract(year from now())")
     public int getReleaseYear() {
         return super.getReleaseYear();
     }

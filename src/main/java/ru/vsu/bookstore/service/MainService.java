@@ -51,7 +51,7 @@ public class MainService {
         } else return false;
     }
 
-    public List getAllConcrete() throws DataIntegrityViolationException {
+    public List<ConcreteProductInShopDto>  getAllConcrete() throws DataIntegrityViolationException {
         List<ConcreteProductInShopDto> list = new ArrayList<>();
         concreteProductInShopRepository.findAll().forEach(x -> list.add(EntityToDto.toDto(x)));
         return list;

@@ -1,5 +1,8 @@
 package ru.vsu.bookstore.domain.concreteProductInShop;
 
+import ru.vsu.bookstore.domain.book.BookDto;
+import ru.vsu.bookstore.domain.magazine.MagazineDto;
+import ru.vsu.bookstore.domain.newspaper.NewspaperDto;
 import ru.vsu.bookstore.domain.product.ProductDto;
 
 public class ConcreteProductInShopDto<T extends ProductDto> {
@@ -9,6 +12,12 @@ public class ConcreteProductInShopDto<T extends ProductDto> {
     private int copiesNumber;
     private T product;
 
+    public String getReadableProductTypeName(){
+        if(product instanceof BookDto) return "Book";
+        else  if(product instanceof NewspaperDto) return "Newspaper";
+        else if(product instanceof MagazineDto) return "Magazine";
+        else return "";
+    }
 
     public long getId() {
         return id;
@@ -48,7 +57,8 @@ public class ConcreteProductInShopDto<T extends ProductDto> {
 
     @Override
     public String toString() {
-        return "\t type: "+this.getProduct().getClass().getSimpleName()+
+        String typeName=this.getProduct().getClass().getSimpleName();
+        return "\t type: "+typeName.substring(0, typeName.length()-3)+
                 "\t id: "+this.getId()+
                 "\t price: "+this.price+
                 "\t copies number: "+this.getCopiesNumber();

@@ -52,7 +52,6 @@ public class ConcreteProductInShopEntity<T extends ProductEntity>  {
         return price;
     }
 
-    //TODO:code clean everywhere
     @Column(name="copies_number")
     public int getCopiesNumber() {
         return copiesNumber;
