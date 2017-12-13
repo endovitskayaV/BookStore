@@ -11,6 +11,13 @@
 </head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <body>
+
+<div class="fixed-action-btn horizontal">
+    <a class="btn-floating blue" th:href="@{/}">
+        <i class="material-icons">home</i>
+    </a>
+</div>
+
 <div class="row">
 <form action="editBook" method="post" class="col s4">
 
@@ -19,7 +26,7 @@
         <input type="number"  name="id" hidden="hidden" th:value="${concreteProduct.getId()}" />
 
         <p><b>Name:</b><br></br>
-            <input type="text" name="name"  th:value="${concreteProduct.getProduct().getName()}" />
+            <input type="text" name="name" required="required" th:value="${concreteProduct.getProduct().getName()}" />
         </p>
         <p><b>Author:</b><br></br>
             <input type="text" name="author"  th:value="${concreteProduct.getProduct().getAuthor()}" />
@@ -28,16 +35,16 @@
             <input type="text" name="publisher"  th:value="${concreteProduct.getProduct().getPublisher()}" />
         </p>
         <p><b>Release year:</b><br></br>
-            <input type="number" name="releaseYear" min="1" th:max="${maxYear}"  th:value="${concreteProduct.getProduct().getReleaseYear()}" />
+            <input type="number" name="releaseYear" required="required" min="1" th:max="${maxYear}"  th:value="${concreteProduct.getProduct().getReleaseYear()}" />
         </p>
         <p><b>Pages number:</b><br></br>
-            <input type="number" name="pagesNumber" min="1"  th:value="${concreteProduct.getProduct().getPagesNumber()}" />
+            <input type="number" name="pagesNumber" required="required" min="3"  th:value="${concreteProduct.getProduct().getPagesNumber()}" />
         </p>
         <p><b>Copies number:</b><br></br>
-            <input type="number" name="copiesNumber"  min="1" th:value="${concreteProduct.getCopiesNumber()}" />
+            <input type="number" name="copiesNumber" required="required"  min="0" th:value="${concreteProduct.getCopiesNumber()}" />
         </p>
         <p><b>Price:</b><br></br>
-            <input type="number" name="price" min="1" th:value="${concreteProduct.getPrice()}" />
+            <input type="number" name="price" required="required" min="0" th:value="${concreteProduct.getPrice()}" />
         </p>
 
 

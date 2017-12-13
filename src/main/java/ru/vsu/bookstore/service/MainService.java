@@ -11,6 +11,7 @@ import ru.vsu.bookstore.domain.util.EntityToDto;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -36,7 +37,8 @@ public class MainService {
 
     }
 
-    public boolean sell(ConcreteProductInShopDto concreteProductInShopDto, int number) throws SQLException {
+    public boolean sell(long id, int number) throws SQLException {
+        ConcreteProductInShopDto concreteProductInShopDto=findConcreteProductById(id);
         if (concreteProductInShopDto.getCopiesNumber() - number >= 0) {
             save(concreteProductInShopDto.setCopiesNumber
                     (concreteProductInShopDto.getCopiesNumber() - number));
@@ -47,6 +49,7 @@ public class MainService {
     public List<ConcreteProductInShopDto>  getAllConcrete() throws DataIntegrityViolationException {
         List<ConcreteProductInShopDto> list = new ArrayList<>();
         concreteProductInShopRepository.findAll().forEach(x -> list.add(EntityToDto.toDto(x)));
+        list.sort(Comparator.comparingInt(ConcreteProductInShopDto::getPrice));
         return list;
     }
 

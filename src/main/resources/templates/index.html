@@ -33,21 +33,32 @@
 
 <div class="row">
 <table class="bordered highlight col s4">
-    <tr data-th-each="product: ${products}">
+    <tr style="margin-bottom: 0px;" data-th-each="product: ${products}">
         <!-- Will produce 'edit?productId=3' -->
       <td> <a style="font-size: 18px"
               th:href="@{/edit(productId=${product.getProduct().getProductId()})}"
               th:text="${product.getProduct().getName()}"></a>
+
           <div th:switch="${product.getReadableProductTypeName()}">
-              <p th:case="'Book'"><span th:text="${product.getProduct().getAuthor()}"></span></p>
-              <p th:case="'Newspaper'">№<span th:text="${product.getProduct().getIssue()}"></span></p>
-              <p th:case="'Magazine'">№<span th:text="${product.getProduct().getIssue()}"></span></p>
+              <p style="margin-top: 0px" th:case="'Book'"><span th:text="${product.getProduct().getAuthor()}"></span></p>
+              <p style="margin-top: 0px" th:case="'Newspaper'">№<span th:text="${product.getProduct().getIssue()}"></span></p>
+              <p style="margin-top: 0px" th:case="'Magazine'">№<span th:text="${product.getProduct().getIssue()}"></span></p>
           </div>
-      </td>
-        <td  data-th-text="${product.getReadableProductTypeName()}"></td>
-        <td><a  th:href="@{/delete(id=${product.getId()})}">
-            <i class="material-icons" style="color: #2196F3; size: 10px">delete</i>
-        </a></td>
+          <p> <i><span th:text="${product.getCopiesNumber()}"></span>pcs</i></p></td>
+
+         <td> <span th:text="${product.getReadableProductTypeName()}"></span></td>
+
+        <td>
+            <a  th:href="@{/sell(id=${product.getId()})}">
+                <i class="material-icons waves-effect waves-light" style="color:#2196f3; size: 10px">
+                    remove_circle_outline</i></a>
+
+
+
+            <a  th:href="@{/delete(id=${product.getId()})}">
+                <i class="material-icons waves-effect waves-light" style="color:#2196f3; size: 10px">delete</i>
+            </a>
+        </td>
 
     </tr>
 </table>
