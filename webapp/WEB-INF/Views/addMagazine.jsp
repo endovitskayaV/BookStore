@@ -16,7 +16,7 @@
 <body>
 <form action="addMagazine" method="post">
 
-    <input name="id" hidden value="${magazine.getId()}" type="number"/>
+    <input name="productId" hidden value="${magazine.getId()}" type="number"/>
 
     <p><b>Название:</b><br>
         <input name="name" required value="${magazine.getName()}" type="text"/>

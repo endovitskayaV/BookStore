@@ -22,7 +22,7 @@ rel="stylesheet">
     <c:forEach var="book" items="${books}">
         <tr>
             <td>
-                <a href="editBook?id=${book.getId()}">  ${book.getName()}</a><br>
+                <a href="editBook?productId=${book.getId()}">  ${book.getName()}</a><br>
                 <c:if test="${!book.getIsAvailable()}">
                     Нет в продаже
                 </c:if>
@@ -30,7 +30,7 @@ rel="stylesheet">
                     Доступно
                 </c:if>
             </td>
-            <td> <a href="deleteBook?id=${book.getId()}" onclick = "return confirm('Удалить?');" >
+            <td> <a href="deleteBook?productId=${book.getId()}" onclick = "return confirm('Удалить?');" >
                 <i class="material-icons"  style="font-size: 10pt;">delete</i></a></td>
         </tr>
     </c:forEach>
@@ -43,7 +43,7 @@ rel="stylesheet">
     <c:forEach var="newspaper" items="${newspapers}">
         <tr>
             <td>
-                <a href="editNewspaper?id=${newspaper.getId()}">  ${newspaper.getName()}</a> <br>№${newspaper.getIssue()}<br>
+                <a href="editNewspaper?productId=${newspaper.getId()}">  ${newspaper.getName()}</a> <br>№${newspaper.getIssue()}<br>
                 <c:if test="${!newspaper.getIsAvailable()}">
                     Нет в продаже
                 </c:if>
@@ -51,7 +51,7 @@ rel="stylesheet">
                     Доступно
                 </c:if>
             </td>
-            <td> <a href="deleteNewspaper?id=${newspaper.getId()}" onclick = "return confirm('Удалить?');" >
+            <td> <a href="deleteNewspaper?productId=${newspaper.getId()}" onclick = "return confirm('Удалить?');" >
                 <i class="material-icons"  style="font-size: 10pt;">delete</i></a></td>
         </tr>
     </c:forEach>
@@ -65,7 +65,7 @@ rel="stylesheet">
     <c:forEach var="magazine" items="${magazines}">
         <tr>
             <td>
-                <a href="editMagazine?id=${magazine.getId()}">  ${magazine.getName()}</a> <br> №${magazine.getIssue()}<br>
+                <a href="editMagazine?productId=${magazine.getId()}">  ${magazine.getName()}</a> <br> №${magazine.getIssue()}<br>
                 <c:if test="${!magazine.getIsAvailable()}">
                     Нет в продаже
                 </c:if>
@@ -73,7 +73,7 @@ rel="stylesheet">
                     Доступно
                 </c:if>
             </td>
-            <td> <a href="deleteMagazine?id=${magazine.getId()}" onclick = "return confirm('Удалить?');" >
+            <td> <a href="deleteMagazine?productId=${magazine.getId()}" onclick = "return confirm('Удалить?');" >
                 <i class="material-icons"  style="font-size: 10pt;">delete</i></a></td>
         </tr>
     </c:forEach>
@@ -88,10 +88,10 @@ rel="stylesheet">
         <c:if test="${shop.getChainStoreId() == chainStore.getId()}">
         <tr>
             <td>
-                <a href="editShop?id=${shop.getId()}">  ${chainStore.getName()}</a><br>
+                <a href="editShop?productId=${shop.getId()}">  ${chainStore.getName()}</a><br>
                     ${shop.getAddress()}
             </td>
-            <td> <a href="deleteShop?id=${shop.getId()}" onclick = "return confirm('Удалить?');" >
+            <td> <a href="deleteShop?productId=${shop.getId()}" onclick = "return confirm('Удалить?');" >
                 <i class="material-icons"  style="font-size: 10pt;">delete</i></a></td>
         </tr>
         </c:if>
@@ -106,9 +106,9 @@ rel="stylesheet">
 
         <tr>
             <td>
-                <p><a href="editChainStore?id=${chainStore.getId()}">  ${chainStore.getName()}</a><br></p>
+                <p><a href="editChainStore?productId=${chainStore.getId()}">  ${chainStore.getName()}</a><br></p>
             </td>
-            <td> <a href="deleteChainStore?id=${chainStore.getId()}" onclick = "return confirm('Удалить?');" >
+            <td> <a href="deleteChainStore?productId=${chainStore.getId()}" onclick = "return confirm('Удалить?');" >
                 <i class="material-icons"  style="font-size: 10pt;">delete</i></a>
             </td>
         </tr>

@@ -16,7 +16,7 @@
     <c:forEach var="book" items="${books}" >
         <tr>
             <td>
-                <a href="bookInfo?id=${book.getId()}"> ${book.getName()}</a><br>
+                <a href="bookInfo?productId=${book.getId()}"> ${book.getName()}</a><br>
                     ${book.getAuthor()}
                 <br><br>
             </td>

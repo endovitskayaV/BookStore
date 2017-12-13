@@ -8,8 +8,8 @@ public class BookDto extends ProductDto{
     private int pagesNumber;
 
     @Override
-    public long getId() {
-        return super.getId();
+    public long getProductId() {
+        return super.getProductId();
     }
 
     @Override
@@ -36,8 +36,8 @@ public class BookDto extends ProductDto{
     }
 
     @Override
-    public BookDto setId(long id){
-        return  (BookDto) super.setId(id);
+    public BookDto setProductId(long productId){
+        return  (BookDto) super.setProductId(productId);
     }
 
     @Override

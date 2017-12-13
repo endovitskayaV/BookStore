@@ -1,12 +1,12 @@
 package ru.vsu.bookstore.domain.product;
 
 public abstract class ProductDto {
-    private long id;
+    private long productId;
     private String name;
     private int releaseYear;
 
-    public ProductDto setId(long id) {
-        this.id = id;
+    public ProductDto setProductId(long productId) {
+        this.productId = productId;
         return this;
     }
     public ProductDto setName(String name) {
@@ -18,8 +18,8 @@ public abstract class ProductDto {
         return this;
     }
 
-    public long getId() {
-        return id;
+    public long getProductId() {
+        return productId;
     }
     public String getName() {
         return name;

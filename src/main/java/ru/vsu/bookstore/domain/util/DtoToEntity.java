@@ -15,7 +15,7 @@ public class DtoToEntity {
     private static BookEntity toEntity(BookDto bookDto) {
         if (bookDto != null) {
             BookEntity bookEntity = new BookEntity();
-            bookEntity.setId(bookDto.getId());
+            bookEntity.setId(bookDto.getProductId());
             return bookEntity
                     .setName(bookDto.getName())
                     .setAuthor(bookDto.getAuthor())
@@ -29,7 +29,7 @@ public class DtoToEntity {
     private static NewspaperEntity toEntity(NewspaperDto newspaperDto){
         if (newspaperDto != null) {
            NewspaperEntity newspaperEntity = new NewspaperEntity();
-            newspaperEntity.setId(newspaperDto.getId());
+            newspaperEntity.setId(newspaperDto.getProductId());
             return newspaperEntity
                     .setName(newspaperDto.getName())
                     .setReleaseYear(newspaperDto.getReleaseYear())
@@ -41,7 +41,7 @@ public class DtoToEntity {
     private static MagazineEntity toEntity(MagazineDto magazineDto){
         if (magazineDto != null) {
             MagazineEntity magazineEntity = new MagazineEntity();
-            magazineEntity.setId(magazineDto.getId());
+            magazineEntity.setId(magazineDto.getProductId());
             return magazineEntity
                     .setName(magazineDto.getName())
                     .setReleaseYear(magazineDto.getReleaseYear())

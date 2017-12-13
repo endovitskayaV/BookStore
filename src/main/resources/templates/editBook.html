@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<body>
+<form action="edit" method="post" class="col s4">
+    <fieldset>
+
+        <input type="number" hidden="hidden" name="productId"  th:value="${concreteProduct.getProduct().getProductId()}" />
+        <input type="number"  name="id" hidden="hidden" th:value="${concreteProduct.getId()}" />
+
+        <p><b>Название:</b><br></br>
+            <input type="text" name="name"  th:value="${concreteProduct.getProduct().getName()}" />
+        </p>
+        <p><b>Автор:</b><br></br>
+            <input type="text" name="author"  th:value="${concreteProduct.getProduct().getAuthor()}" />
+        </p>
+        <p><b>Издатель:</b><br></br>
+            <input type="text" name="publisher"  th:value="${concreteProduct.getProduct().getPublisher()}" />
+        </p>
+        <p><b>Год издания:</b><br></br>
+            <input type="text" name="releaseYear"  th:value="${concreteProduct.getProduct().getReleaseYear()}" />
+        </p>
+        <p><b>Количество страниц:</b><br></br>
+            <input type="number" name="pagesNumber" min="1"  th:value="${concreteProduct.getProduct().getPagesNumber()}" />
+        </p>
+        <p><b>Цена:</b><br></br>
+            <input type="number" name="copiesNumber"  min="1" th:value="${concreteProduct.getCopiesNumber()}" />
+        </p>
+        <p><b>Количество экземпляров:</b><br></br>
+            <input type="number" name="price" min="1" th:value="${concreteProduct.getPrice()}" />
+        </p>
+    </fieldset>
+
+    <p>
+        <button type="reset"> Отмена</button>
+        <button type="submit">Сохранить</button>
+    </p>
+</form>
+
+
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>

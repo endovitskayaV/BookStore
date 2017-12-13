@@ -16,7 +16,7 @@
 <body>
 <form action="addBook" method="post">
 
-    <input name="id" hidden value="${book.getId()}" type="number"/>
+    <input name="productId" hidden value="${book.getId()}" type="number"/>
 
     <p><b>Название:</b><br>
         <input name="name" required value="${book.getName()}" type="text"/>

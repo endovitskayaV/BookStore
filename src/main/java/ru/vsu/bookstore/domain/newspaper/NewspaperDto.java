@@ -7,8 +7,8 @@ public class NewspaperDto extends ProductDto {
     private int issue;
 
     @Override
-    public long getId() {
-        return super.getId();
+    public long getProductId() {
+        return super.getProductId();
     }
 
     @Override
@@ -27,8 +27,8 @@ public class NewspaperDto extends ProductDto {
 
 
     @Override
-    public NewspaperDto setId(long id){
-        return (NewspaperDto) super.setId(id);
+    public NewspaperDto setProductId(long productId){
+        return (NewspaperDto) super.setProductId(productId);
     }
 
     @Override

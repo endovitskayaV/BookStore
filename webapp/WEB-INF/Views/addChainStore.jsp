@@ -16,7 +16,7 @@
 <body>
 <form action="addChainStore" method="post">
 
-    <input name="id" hidden value="${chainStore.getId()}" type="number"/>
+    <input name="productId" hidden value="${chainStore.getId()}" type="number"/>
 
     <p><b>Название:</b><br>
         <input name="name" required value="${chainStore.getName()}" type="text"/>

@@ -16,7 +16,7 @@
     <c:forEach var="newspaper" items="${newspapers}" >
         <tr>
             <td>
-                <a href="newspaperInfo?id=${newspaper.getId()}"> ${newspaper.getName()}</a><br>
+                <a href="newspaperInfo?productId=${newspaper.getId()}"> ${newspaper.getName()}</a><br>
                 №${newspaper.getIssue()}
                 <br><br>
             </td>

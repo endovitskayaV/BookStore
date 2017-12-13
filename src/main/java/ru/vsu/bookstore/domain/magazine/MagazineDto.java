@@ -8,8 +8,8 @@ public class MagazineDto extends ProductDto {
     private int issue;
 
     @Override
-    public long getId() {
-        return super.getId();
+    public long getProductId() {
+        return super.getProductId();
     }
 
     @Override
@@ -32,8 +32,8 @@ public class MagazineDto extends ProductDto {
 
 
     @Override
-    public MagazineDto setId(long id){
-       return (MagazineDto) super.setId(id);
+    public MagazineDto setProductId(long productId){
+       return (MagazineDto) super.setProductId(productId);
     }
 
     @Override

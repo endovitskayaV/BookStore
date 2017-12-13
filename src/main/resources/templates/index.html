@@ -18,9 +18,9 @@
 <div class="row">
 <table class="bordered highlight col s2">
     <tr data-th-each="product: ${products}">
-        <!-- Will produce 'edit?id=3' -->
+        <!-- Will produce 'edit?productId=3' -->
       <td> <a
-              th:href="@{/edit(id=${product.getProduct().getId()})}"
+              th:href="@{/edit(productId=${product.getProduct().getProductId()})}"
               th:text="${product.getReadableProductTypeName()}"></a></td>
         <td data-th-text="${product.getProduct().getName()}"></td>
     </tr>

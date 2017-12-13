@@ -31,7 +31,7 @@
         </c:forEach>
     </select>
 
-    <input name="id" hidden value="${shop.getId()}" type="number"/>
+    <input name="productId" hidden value="${shop.getId()}" type="number"/>
 
     <p><b>Адрес:</b><br>
         <input name="address" value="${shop.getAddress()}" type="text"/>
