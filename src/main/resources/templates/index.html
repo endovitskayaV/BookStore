@@ -15,14 +15,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <body>
 
+<div class="fixed-action-btn horizontal">
+    <a class="btn-floating btn-large blue">
+        <i class="material-icons">add</i>
+    </a>
+    <ul>
+        <li><a th:href="@{/add(productType='Book')}" style="font-size: 8px"
+               class="btn-floating  btn-large  yellow darken-1">book</a></li>
+        <li><a th:href="@{/add(productType='Newspaper')}" style="font-size: 8px"
+               class="btn-floating  btn-large  green">newspaper</a></li>
+        <li><a th:href="@{/add(productType='Magazine')}" style="font-size: 8px"
+               class="btn-floating  btn-large  red">magazine</a></li>
+    </ul>
+</div>
+
+
+
 <div class="row">
-<table class="bordered highlight col s2">
+<table class="bordered highlight col s4">
     <tr data-th-each="product: ${products}">
         <!-- Will produce 'edit?productId=3' -->
-      <td> <a
+      <td> <a style="font-size: 18px"
               th:href="@{/edit(productId=${product.getProduct().getProductId()})}"
-              th:text="${product.getReadableProductTypeName()}"></a></td>
-        <td data-th-text="${product.getProduct().getName()}"></td>
+              th:text="${product.getProduct().getName()}"></a>
+          <div th:switch="${product.getReadableProductTypeName()}">
+              <p th:case="'Book'"><span th:text="${product.getProduct().getAuthor()}"></span></p>
+              <p th:case="'Newspaper'">№<span th:text="${product.getProduct().getIssue()}"></span></p>
+              <p th:case="'Magazine'">№<span th:text="${product.getProduct().getIssue()}"></span></p>
+          </div>
+      </td>
+        <td  data-th-text="${product.getReadableProductTypeName()}"></td>
+        <td><a  th:href="@{/delete(id=${product.getId()})}">
+            <i class="material-icons" style="color: #2196F3; size: 10px">delete</i>
+        </a></td>
+
     </tr>
 </table>
 </div>

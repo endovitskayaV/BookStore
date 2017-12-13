@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <body>
 <div class="row">
-<form action="editBook" method="post" class="col s4">
+    <form action="editMagazine" method="post" class="col s4">
 
 
         <input type="number" hidden="hidden" name="productId"  th:value="${concreteProduct.getProduct().getProductId()}" />
@@ -21,11 +21,8 @@
         <p><b>Name:</b><br></br>
             <input type="text" name="name"  th:value="${concreteProduct.getProduct().getName()}" />
         </p>
-        <p><b>Author:</b><br></br>
-            <input type="text" name="author"  th:value="${concreteProduct.getProduct().getAuthor()}" />
-        </p>
-        <p><b>Publisher:</b><br></br>
-            <input type="text" name="publisher"  th:value="${concreteProduct.getProduct().getPublisher()}" />
+        <p><b>Issue:</b><br></br>
+            <input type="number" name="issue" min="1"  th:value="${concreteProduct.getProduct().getIssue()}" />
         </p>
         <p><b>Release year:</b><br></br>
             <input type="number" name="releaseYear" min="1" th:max="${maxYear}"  th:value="${concreteProduct.getProduct().getReleaseYear()}" />
@@ -41,11 +38,11 @@
         </p>
 
 
-    <p>
-        <button type="reset"> Отмена</button>
-        <button type="submit">Сохранить</button>
-    </p>
-</form>
+        <p>
+            <button type="reset"> Отмена</button>
+            <button type="submit">Сохранить</button>
+        </p>
+    </form>
 </div>
 
 

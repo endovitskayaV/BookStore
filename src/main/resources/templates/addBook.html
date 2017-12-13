@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <body>
 <div class="row">
-<form action="editBook" method="post" class="col s4">
+    <form action="addBook" method="post" class="col s4">
 
 
         <input type="number" hidden="hidden" name="productId"  th:value="${concreteProduct.getProduct().getProductId()}" />
@@ -41,11 +41,11 @@
         </p>
 
 
-    <p>
-        <button type="reset"> Отмена</button>
-        <button type="submit">Сохранить</button>
-    </p>
-</form>
+        <p>
+            <button type="reset"> Отмена</button>
+            <button type="submit">Сохранить</button>
+        </p>
+    </form>
 </div>
 
 

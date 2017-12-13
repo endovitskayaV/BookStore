@@ -23,27 +23,20 @@ public class MainService {
         this.concreteProductInShopRepository = concreteProductInShopRepository;
     }
 
-    public void save(ConcreteProductInShopDto concreteProductInShopDto) {
-        try {
-            if (concreteProductInShopDto.getProduct().getReleaseYear()>-1 &&
+    public void save(ConcreteProductInShopDto concreteProductInShopDto) throws SQLException {
+        if (concreteProductInShopDto.getProduct().getReleaseYear()>-1 &&
                     concreteProductInShopDto.getProduct().getReleaseYear()<=
                             Calendar.getInstance().get(Calendar.YEAR))
             concreteProductInShopRepository.save(DtoToEntity.toEntity(concreteProductInShopDto));
             else throw new SQLException("incorrect release year");
-        } catch (SQLException e) {
-            System.out.println("Save failed. " + e.toString());
-        }
     }
 
-    public void delete(ConcreteProductInShopDto concreteProductInShopDto) {
-        try {
-            concreteProductInShopRepository.delete(DtoToEntity.toEntity(concreteProductInShopDto));
-        } catch (Exception e) {
-            System.out.println("Delete failed. " + e.toString());
-        }
+    public void delete(long concreteProductId) throws Exception {
+       concreteProductInShopRepository.delete(concreteProductId);
+
     }
 
-    public boolean sell(ConcreteProductInShopDto concreteProductInShopDto, int number) {
+    public boolean sell(ConcreteProductInShopDto concreteProductInShopDto, int number) throws SQLException {
         if (concreteProductInShopDto.getCopiesNumber() - number >= 0) {
             save(concreteProductInShopDto.setCopiesNumber
                     (concreteProductInShopDto.getCopiesNumber() - number));
